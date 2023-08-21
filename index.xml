@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>A Hugo theme for creating Webslides.js presentations</title>
-    <link>http://haoshuwei.github.io/</link>
-    <description>Recent content on A Hugo theme for creating Webslides.js presentations</description>
+    <title>Huabing Blog</title>
+    <link>/</link>
+    <description>Recent content on Huabing Blog</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en-us</language><atom:link href="http://haoshuwei.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <language>en-us</language><atom:link href="/index.xml" rel="self" type="application/rss+xml" />
   </channel>
 </rss>
