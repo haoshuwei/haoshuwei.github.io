@@ -16,5 +16,14 @@
       <description></description>
     </item>
     
+    <item>
+      <title>An Example Post</title>
+      <link>https://haoshuwei.github.io/post/kubernetes/</link>
+      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://haoshuwei.github.io/post/kubernetes/</guid>
+      <description></description>
+    </item>
+    
   </channel>
 </rss>
