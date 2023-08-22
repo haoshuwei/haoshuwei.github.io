@@ -10,8 +10,8 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="img/subset.jpeg">
-    <meta property="twitter:image" content="img/subset.jpeg" />
+    <meta property="og:image" content="img/sunset.jpg">
+    <meta property="twitter:image" content="img/sunset.jpg" />
     
 
     
@@ -152,7 +152,7 @@
 
 <style type="text/css">
     header.intro-header {
-        background-image: url('/img/subset.jpeg')
+        background-image: url('/img/sunset.jpg')
     }
 </style>
 
@@ -212,6 +212,14 @@
 <p>如果您是 Kubernetes 用户，您可以通过终止 pod 向容器发送 SIGTERM。每当 pod 终止时，默认情况下，Kubernetes 都会向 pod 中的容器发送 SIGTERM 信号。</p>
 <p>由于扩容或部署操作，Pod 通常会自动终止。要手动终止 pod，您可以发送 kubectl delete 命令或 API 调用来终止 pod。</p>
 <p>请注意，在默认为 30 秒的宽限期之后，Kubernetes 会发送 SIGKILL 以立即终止容器。</p>
+<pre tabindex="0"><code>apiVersion: v1
+kind: Namespace
+metadata:
+  name: test
+</code></pre><p>
+  <img src="img/sunset.jpg" alt="test">
+
+</p>
 
 
                 
