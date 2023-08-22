@@ -10,20 +10,20 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="img/post-bg-coffee.jpeg">
-    <meta property="twitter:image" content="img/post-bg-coffee.jpeg" />
+    <meta property="og:image" content="img/subset.jpeg">
+    <meta property="twitter:image" content="img/subset.jpeg" />
     
 
     
-    <meta name="title" content="An Example Post" />
-    <meta property="og:title" content="An Example Post" />
-    <meta property="twitter:title" content="An Example Post" />
+    <meta name="title" content="Linux 容器优雅退出" />
+    <meta property="og:title" content="Linux 容器优雅退出" />
+    <meta property="twitter:title" content="Linux 容器优雅退出" />
     
 
     
-    <meta name="description" content="An Example Post">
-    <meta property="og:description" content="An Example Post" />
-    <meta property="twitter:description" content="An Example Post" />
+    <meta name="description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。">
+    <meta property="og:description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。" />
+    <meta property="twitter:description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。" />
     
 
     
@@ -34,9 +34,9 @@
     <meta name="keyword"  content="赵化冰, zhaohuabing, Zhaohuabing, , 赵化冰的网络日志, 赵化冰的博客, Zhaohuabing Blog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>An Example Post | 赵化冰的博客 | Zhaohuabing Blog</title>
+    <title>Linux 容器优雅退出 | 赵化冰的博客 | Zhaohuabing Blog</title>
 
-    <link rel="canonical" href="/post/kubernetes/">
+    <link rel="canonical" href="/post/2023-08-22-sigterm/">
 
     
     
@@ -152,7 +152,7 @@
 
 <style type="text/css">
     header.intro-header {
-        background-image: url('/img/post-bg-coffee.jpeg')
+        background-image: url('/img/subset.jpeg')
     }
 </style>
 
@@ -168,12 +168,12 @@
                             kubernetes
                         </a>
                         
-                        <a class="tag" href="/tags/docker" title="docker">
-                            docker
+                        <a class="tag" href="/tags/linux" title="linux">
+                            linux
                         </a>
                         
                     </div>
-                    <h1>An Example Post</h1>
+                    <h1>Linux 容器优雅退出</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
@@ -208,7 +208,11 @@
                 post-container">
 
                 
-                
+                <h1 id="kubernetes-中的-sigterm">Kubernetes 中的 SIGTERM</h1>
+<p>如果您是 Kubernetes 用户，您可以通过终止 pod 向容器发送 SIGTERM。每当 pod 终止时，默认情况下，Kubernetes 都会向 pod 中的容器发送 SIGTERM 信号。</p>
+<p>由于扩容或部署操作，Pod 通常会自动终止。要手动终止 pod，您可以发送 kubectl delete 命令或 API 调用来终止 pod。</p>
+<p>请注意，在默认为 30 秒的宽限期之后，Kubernetes 会发送 SIGKILL 以立即终止容器。</p>
+
 
                 
                 
@@ -256,14 +260,9 @@
                 <hr>
                 <ul class="pager">
                     
-                    <li class="previous">
-                        <a href="/post/2023-08-22-sigterm/" data-toggle="tooltip" data-placement="top" title="Linux 容器优雅退出">&larr;
-                            Previous Post</a>
-                    </li>
-                    
                     
                     <li class="next">
-                        <a href="/post/helloworld/" data-toggle="tooltip" data-placement="top" title="An Example Post">Next
+                        <a href="/post/kubernetes/" data-toggle="tooltip" data-placement="top" title="An Example Post">Next
                             Post &rarr;</a>
                     </li>
                     
