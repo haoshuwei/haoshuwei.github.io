@@ -21,9 +21,9 @@
     
 
     
-    <meta name="description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。">
-    <meta property="og:description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。" />
-    <meta property="twitter:description" content="赵化冰，程序员, 开源爱好者，生活探险家 | 这里是 赵化冰 的博客，与你一起发现更大的世界。" />
+    <meta name="description" content="本文主要阐述kube-apiserver kubelet在线调试方法">
+    <meta property="og:description" content="本文主要阐述kube-apiserver kubelet在线调试方法" />
+    <meta property="twitter:description" content="本文主要阐述kube-apiserver kubelet在线调试方法" />
     
 
     
@@ -344,7 +344,7 @@ $(function() {
                 post-container">
 
                 
-                <h1 id="kubernetes-组件debug调试">kubernetes 组件debug调试</h1>
+                <p>本文主要阐述kube-apiserver kubelet在线调试方法。</p>
 <h2 id="热更新-kubernetes-组件的日志级别">热更新 kubernetes 组件的日志级别</h2>
 <p>kube-apiserver/kubelet 等组件通常使用 <code>-v</code> 来设置日志级别，默认的日志级别是2，下面是动态热更新日志级别到4的操作步骤：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># 使用 kube-apiserver 的 http 访问代理</span>

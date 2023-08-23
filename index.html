@@ -195,9 +195,8 @@
 	
         <div class="post-content-preview">
 	
-            kubernetes 组件debug调试 热更新 kubernetes 组件的日志级别 kube-apiserver/kubelet 等组件通常使用 -v 来设置日志级别，默认的日志级别是2，下面是动态热更新日志级别到4的操作步骤：
-# 使用 kube-apiserver 的 http 访问代理 $ kubctl proxy Starting to serve on 127.0.0.1:8001 # 更新 kube-apiserver 组件的日志级别 $ curl -X PUT 127.0.0.1:8001/debug/flags/v -d &#34;4&#34; successfully set klog.logging.verbosity to 4 # 更新 kubelet 组件的日志级别 $ export NODENAME=hao $ curl -X PUT 127.0.0.1:8001/api/v1/nodes/${NODENAME=hao}/proxy/debug/flags/v -d &#34;4&#34; successfully set klog.logging.verbosity to 4 
-       
+            本文主要阐述kube-apiserver kubelet在线调试方法
+        
         </div>
     </a>
     <p class="post-meta">
