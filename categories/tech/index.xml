@@ -8,24 +8,6 @@
     <language>en-us</language>
     <lastBuildDate>Tue, 22 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://haoshuwei.github.io/categories/tech/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>An Example Post</title>
-      <link>https://haoshuwei.github.io/post/helloworld/</link>
-      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://haoshuwei.github.io/post/helloworld/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>An Example Post</title>
-      <link>https://haoshuwei.github.io/post/kubernetes/</link>
-      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://haoshuwei.github.io/post/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Linux 容器优雅退出</title>
       <link>https://haoshuwei.github.io/post/2023-08-22-sigterm/</link>
       <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
@@ -36,6 +18,15 @@
 请注意，在默认为 30 秒的宽限期之后，Kubernetes 会发送 SIGKILL 以立即终止容器。
 二级 Kubernetes 用户
 apiVersion: v1 kind: Namespace metadata: name: test </description>
+    </item>
+    
+    <item>
+      <title>An Example Post</title>
+      <link>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</link>
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</guid>
+      <description></description>
     </item>
     
   </channel>

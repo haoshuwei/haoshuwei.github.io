@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>tag2 on Notre-Dame de Paris</title>
+    <title>tag2 on Maybe Blog</title>
     <link>https://haoshuwei.github.io/tags/tag2/</link>
-    <description>Recent content in tag2 on Notre-Dame de Paris</description>
+    <description>Recent content in tag2 on Maybe Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://haoshuwei.github.io/tags/tag2/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>An Example Post</title>
-      <link>https://haoshuwei.github.io/post/my-second-post/</link>
+      <link>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</link>
       <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://haoshuwei.github.io/post/my-second-post/</guid>
+      <guid>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</guid>
       <description></description>
     </item>
     
