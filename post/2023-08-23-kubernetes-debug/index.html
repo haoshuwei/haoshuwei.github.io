@@ -349,7 +349,7 @@ $(function() {
 <p>kube-apiserver/kubelet 等组件通常使用 <code>-v</code> 来设置日志级别，默认的日志级别是2，下面是动态热更新日志级别到4的操作步骤：</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># 使用 kube-apiserver 的 http 访问代理</span>
 </span></span><span style="display:flex;"><span>$ kubctl proxy
-</span></span><span style="display:flex;"><span>Starting to serve on 127.0.0.1:8001
+</span></span><span style="display:flex;"><span>Starting to serve on <span style="color:#ff79c6">[</span>::<span style="color:#ff79c6">]</span>:8001
 </span></span><span style="display:flex;"><span>
 </span></span><span style="display:flex;"><span><span style="color:#6272a4"># 更新 kube-apiserver 组件的日志级别</span>
 </span></span><span style="display:flex;"><span>$ curl -X PUT 127.0.0.1:8001/debug/flags/v -d <span style="color:#f1fa8c">&#34;4&#34;</span>
@@ -359,7 +359,52 @@ $(function() {
 </span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">NODENAME</span><span style="color:#ff79c6">=</span>hao
 </span></span><span style="display:flex;"><span>$ curl -X PUT 127.0.0.1:8001/api/v1/nodes/<span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">NODENAME</span>=hao<span style="color:#f1fa8c">}</span>/proxy/debug/flags/v -d <span style="color:#f1fa8c">&#34;4&#34;</span>
 </span></span><span style="display:flex;"><span>successfully <span style="color:#8be9fd;font-style:italic">set</span> klog.logging.verbosity to <span style="color:#bd93f9">4</span>
-</span></span></code></pre></div>
+</span></span></code></pre></div><h2 id="pprof-调试">pprof 调试</h2>
+<p>pprof是google官方提供的golang 内存/CPU/goroutine 分析工具，主要用于性能分析。在 kubernetes 1.18+ 的版本中， kube-apiserver 已默认开启 pprof，参数如下所示：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>--profiling              Enable profiling via web interface host:port/debug/pprof/ <span style="color:#ff79c6">(</span>default <span style="color:#8be9fd;font-style:italic">true</span><span style="color:#ff79c6">)</span>
+</span></span></code></pre></div><p>开启 kube-apiserver 的 http 访问代理：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ kubectl proxy --address<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;0.0.0.0&#39;</span> --accept-hosts<span style="color:#ff79c6">=</span><span style="color:#f1fa8c">&#39;^*$&#39;</span>
+</span></span><span style="display:flex;"><span>Starting to serve on <span style="color:#ff79c6">[</span>::<span style="color:#ff79c6">]</span>:8001
+</span></span></code></pre></div><p>以使用go tool pprof工具直接分析：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ go tool pprof 127.0.0.1:8001/debug/pprof/heap
+</span></span><span style="display:flex;"><span>Fetching profile over HTTP from http://127.0.0.1:8001/debug/pprof/heap
+</span></span><span style="display:flex;"><span>Saved profile in /root/pprof/pprof.kube-apiserver.alloc_objects.alloc_space.inuse_objects.inuse_space.001.pb.gz
+</span></span><span style="display:flex;"><span>File: kube-apiserver
+</span></span><span style="display:flex;"><span>Type: inuse_space
+</span></span><span style="display:flex;"><span>Time: Aug 23, <span style="color:#bd93f9">2023</span> at 3:06pm <span style="color:#ff79c6">(</span>CST<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Entering interactive mode <span style="color:#ff79c6">(</span><span style="color:#8be9fd;font-style:italic">type</span> <span style="color:#f1fa8c">&#34;help&#34;</span> <span style="color:#ff79c6">for</span> commands, <span style="color:#f1fa8c">&#34;o&#34;</span> <span style="color:#ff79c6">for</span> options<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span><span style="color:#ff79c6">(</span>pprof<span style="color:#ff79c6">)</span> top
+</span></span><span style="display:flex;"><span>Showing nodes accounting <span style="color:#ff79c6">for</span> 37.60MB, 30.06% of 125.07MB total
+</span></span><span style="display:flex;"><span>Dropped <span style="color:#bd93f9">373</span> nodes <span style="color:#ff79c6">(</span>cum &lt;<span style="color:#ff79c6">=</span> 0.63MB<span style="color:#ff79c6">)</span>
+</span></span><span style="display:flex;"><span>Showing top <span style="color:#bd93f9">10</span> nodes out of <span style="color:#bd93f9">377</span>
+</span></span><span style="display:flex;"><span>      flat  flat%   sum%        cum   cum%
+</span></span><span style="display:flex;"><span>    5.64MB  4.51%  4.51%     7.16MB  5.73%  encoding/json.Marshal
+</span></span><span style="display:flex;"><span>    5.01MB  4.01%  8.52%     5.01MB  4.01%  regexp.onePassCopy
+</span></span><span style="display:flex;"><span>    4.51MB  3.61% 12.13%     6.01MB  4.81%  k8s.io/kube-openapi/pkg/builder.<span style="color:#ff79c6">(</span>*openAPI<span style="color:#ff79c6">)</span>.buildOperations
+</span></span><span style="display:flex;"><span>    4.26MB  3.40% 15.53%     4.26MB  3.40%  google.golang.org/grpc/internal/transport.newBufWriter
+</span></span><span style="display:flex;"><span>    3.52MB  2.81% 18.34%     3.52MB  2.81%  regexp/syntax.<span style="color:#ff79c6">(</span>*compiler<span style="color:#ff79c6">)</span>.inst
+</span></span><span style="display:flex;"><span>    3.51MB  2.81% 21.15%     3.51MB  2.81%  reflect.unsafe_NewArray
+</span></span><span style="display:flex;"><span>    3.50MB  2.80% 23.95%     3.50MB  2.80%  k8s.io/kube-openapi/pkg/builder3.<span style="color:#ff79c6">(</span>*openAPI<span style="color:#ff79c6">)</span>.buildParameter
+</span></span><span style="display:flex;"><span>    3.09MB  2.47% 26.43%     3.09MB  2.47%  bufio.NewReaderSize
+</span></span><span style="display:flex;"><span>    2.50MB  2.00% 28.43%     2.50MB  2.00%  reflect.New
+</span></span><span style="display:flex;"><span>    2.05MB  1.64% 30.06%     8.06MB  6.44%  k8s.io/kube-openapi/pkg/builder.<span style="color:#ff79c6">(</span>*openAPI<span style="color:#ff79c6">)</span>.buildPaths
+</span></span></code></pre></div><p>也可以使用 Web 页面查看火焰图等信息（需要安装graphviz包）：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ go tool pprof -http 0.0.0.0:8082 127.0.0.1:8001/debug/pprof/heap
+</span></span><span style="display:flex;"><span>Fetching profile over HTTP from http://127.0.0.1:8001/debug/pprof/heap
+</span></span><span style="display:flex;"><span>Saved profile in /root/pprof/pprof.kube-apiserver.alloc_objects.alloc_space.inuse_objects.inuse_space.003.pb.gz
+</span></span><span style="display:flex;"><span>Serving web UI on http://0.0.0.0:8082
+</span></span><span style="display:flex;"><span>http://0.0.0.0:8082
+</span></span></code></pre></div><p>浏览器查看火焰图1：
+
+  <img src="/img/flame-graph-1.png" alt="火焰图1">
+
+</p>
+<p>火焰图2：
+
+  <img src="/img/flame-graph-2.png" alt="火焰图2">
+
+</p>
+
 
                 
 
