@@ -404,7 +404,13 @@ $(function() {
   <img src="/img/flame-graph-2.png" alt="火焰图2">
 
 </p>
-
+<p>kubelet 的 pprof 调试，路径有所不同：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>$ pprof -http 0.0.0.0:8082 127.0.0.1:8001/api/v1/nodes/<span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">NODENAME</span><span style="color:#f1fa8c">}</span>/proxy/debug/pprof/heap
+</span></span><span style="display:flex;"><span>Fetching profile over HTTP from http://127.0.0.1:8001/api/v1/nodes/hao/proxy/debug/pprof/heap
+</span></span><span style="display:flex;"><span>Saved profile in /root/pprof/pprof.kubelet.alloc_objects.alloc_space.inuse_objects.inuse_space.001.pb.gz
+</span></span><span style="display:flex;"><span>Serving web UI on http://0.0.0.0:8082
+</span></span><span style="display:flex;"><span>http://0.0.0.0:8082
+</span></span></code></pre></div>
 
                 
 
