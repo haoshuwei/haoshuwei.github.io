@@ -10,14 +10,14 @@
     <meta property="og:type" content="article">
 
     
-    <meta property="og:image" content="https://haoshuwei.github.io/img/sunset.jpg">
-    <meta property="twitter:image" content="https://haoshuwei.github.io/img/sunset.jpg" />
+    <meta property="og:image" content="img/sunset.jpg">
+    <meta property="twitter:image" content="img/sunset.jpg" />
     
 
     
-    <meta name="title" content="An Example Post" />
-    <meta property="og:title" content="An Example Post" />
-    <meta property="twitter:title" content="An Example Post" />
+    <meta name="title" content="kubernetes 组件debug调试" />
+    <meta property="og:title" content="kubernetes 组件debug调试" />
+    <meta property="twitter:title" content="kubernetes 组件debug调试" />
     
 
     
@@ -34,7 +34,7 @@
     <meta name="keyword"  content="赵化冰, zhaohuabing, Zhaohuabing, , 赵化冰的网络日志, 赵化冰的博客, Zhaohuabing Blog, 博客, 个人网站, 互联网, Web, 云原生, PaaS, Istio, Kubernetes, 微服务, Microservice">
     <link rel="shortcut icon" href="/img/favicon.ico">
 
-    <title>An Example Post | 赵化冰的博客 | Zhaohuabing Blog</title>
+    <title>kubernetes 组件debug调试 | 赵化冰的博客 | Zhaohuabing Blog</title>
 
     <link rel="canonical" href="/post/2023-08-23-kubernetes-debug/">
 
@@ -170,25 +170,21 @@
                 <div class="post-heading">
                     <div class="tags">
                         
-                        <a class="tag" href="/tags/tag1" title="tag1">
-                            tag1
-                        </a>
-                        
-                        <a class="tag" href="/tags/tag2" title="tag2">
-                            tag2
+                        <a class="tag" href="/tags/kubernetes" title="kubernetes">
+                            kubernetes
                         </a>
                         
                     </div>
-                    <h1>An Example Post</h1>
+                    <h1>kubernetes 组件debug调试</h1>
                     <h2 class="subheading"></h2>
                     <span class="meta">
                         
                             Posted by 
                             
-                                     &#34;&#34;
+                                     &#34;maybe&#34;
                              
                             on 
-                            Monday, June 4, 2018
+                            Wednesday, August 23, 2023
                             
                                 <span id="/post/2023-08-23-kubernetes-debug/" class="leancloud_visitors meta_data_item" data-flag-title="">
     <span class="post-meta-item-icon">
@@ -348,7 +344,22 @@ $(function() {
                 post-container">
 
                 
-                
+                <h1 id="kubernetes-组件debug调试">kubernetes 组件debug调试</h1>
+<h2 id="热更新-kubernetes-组件的日志级别">热更新 kubernetes 组件的日志级别</h2>
+<p>kube-apiserver/kubelet 等组件通常使用 <code>-v</code> 来设置日志级别，默认的日志级别是2，下面是动态热更新日志级别到4的操作步骤：</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span><span style="color:#6272a4"># 使用 kube-apiserver 的 http 访问代理</span>
+</span></span><span style="display:flex;"><span>$ kubctl proxy
+</span></span><span style="display:flex;"><span>Starting to serve on 127.0.0.1:8001
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 更新 kube-apiserver 组件的日志级别</span>
+</span></span><span style="display:flex;"><span>$ curl -X PUT 127.0.0.1:8001/debug/flags/v -d <span style="color:#f1fa8c">&#34;4&#34;</span>
+</span></span><span style="display:flex;"><span>successfully <span style="color:#8be9fd;font-style:italic">set</span> klog.logging.verbosity to <span style="color:#bd93f9">4</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#6272a4"># 更新 kubelet 组件的日志级别</span>
+</span></span><span style="display:flex;"><span>$ <span style="color:#8be9fd;font-style:italic">export</span> <span style="color:#8be9fd;font-style:italic">NODENAME</span><span style="color:#ff79c6">=</span>hao
+</span></span><span style="display:flex;"><span>$ curl -X PUT 127.0.0.1:8001/api/v1/nodes/<span style="color:#f1fa8c">${</span><span style="color:#8be9fd;font-style:italic">NODENAME</span>=hao<span style="color:#f1fa8c">}</span>/proxy/debug/flags/v -d <span style="color:#f1fa8c">&#34;4&#34;</span>
+</span></span><span style="display:flex;"><span>successfully <span style="color:#8be9fd;font-style:italic">set</span> klog.logging.verbosity to <span style="color:#bd93f9">4</span>
+</span></span></code></pre></div>
 
                 
 
@@ -389,8 +400,6 @@ $(function() {
                     <hr class="hidden-sm hidden-xs">
                     <h5><a href="/tags/">FEATURED TAGS</a></h5>
                     <div class="tags">
-                        
-                        
                         
                         
                         

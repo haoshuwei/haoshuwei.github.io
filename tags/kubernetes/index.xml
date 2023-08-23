@@ -6,18 +6,15 @@
     <description>Recent content in kubernetes on Maybe Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 22 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://haoshuwei.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Wed, 23 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://haoshuwei.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Linux 容器优雅退出</title>
-      <link>https://haoshuwei.github.io/post/2023-08-22-sigterm/</link>
-      <pubDate>Tue, 22 Aug 2023 00:00:00 +0000</pubDate>
+      <title>kubernetes 组件debug调试</title>
+      <link>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</link>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://haoshuwei.github.io/post/2023-08-22-sigterm/</guid>
-      <description>Kubernetes 中的 SIGTERM 二级 如果您是 Kubernetes 用户，您可以通过终止 pod 向容器发送 SIGTERM。每当 pod 终止时，默认情况下，Kubernetes 都会向 pod 中的容器发送 SIGTERM 信号。
-由于扩容或部署操作，Pod 通常会自动终止。要手动终止 pod，您可以发送 kubectl delete 命令或 API 调用来终止 pod。
-请注意，在默认为 30 秒的宽限期之后，Kubernetes 会发送 SIGKILL 以立即终止容器。
-二级 Kubernetes 用户
-apiVersion: v1 kind: Namespace metadata: name: test </description>
+      <guid>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</guid>
+      <description>kubernetes 组件debug调试 热更新 kubernetes 组件的日志级别 kube-apiserver/kubelet 等组件通常使用 -v 来设置日志级别，默认的日志级别是2，下面是动态热更新日志级别到4的操作步骤：
+# 使用 kube-apiserver 的 http 访问代理 $ kubctl proxy Starting to serve on 127.0.0.1:8001 # 更新 kube-apiserver 组件的日志级别 $ curl -X PUT 127.0.0.1:8001/debug/flags/v -d &amp;#34;4&amp;#34; successfully set klog.logging.verbosity to 4 # 更新 kubelet 组件的日志级别 $ export NODENAME=hao $ curl -X PUT 127.0.0.1:8001/api/v1/nodes/${NODENAME=hao}/proxy/debug/flags/v -d &amp;#34;4&amp;#34; successfully set klog.logging.verbosity to 4 </description>
     </item>
     
   </channel>
