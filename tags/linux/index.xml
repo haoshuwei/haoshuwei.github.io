@@ -1,26 +1,19 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Maybe Blog</title>
-    <link>https://haoshuwei.github.io/</link>
-    <description>Recent content on Maybe Blog</description>
+    <title>Linux on Maybe Blog</title>
+    <link>https://haoshuwei.github.io/tags/linux/</link>
+    <description>Recent content in Linux on Maybe Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
     <lastBuildDate>Tue, 14 May 2024 00:00:00 +0000</lastBuildDate>
-    <atom:link href="https://haoshuwei.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="https://haoshuwei.github.io/tags/linux/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Linux 性能异常分析</title>
       <link>https://haoshuwei.github.io/post/2024-05-14-linux-perm/</link>
       <pubDate>Tue, 14 May 2024 00:00:00 +0000</pubDate>
       <guid>https://haoshuwei.github.io/post/2024-05-14-linux-perm/</guid>
       <description>首先，我们先了解几个基本概念： 什么是平均负载？ 什么是D进程？ 什么是Z进程？ TOP命令输出的含义是什么？ iostat命令输出的含义是什么? 基本</description>
-    </item>
-    <item>
-      <title>kubernetes 组件debug调试</title>
-      <link>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</link>
-      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
-      <guid>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</guid>
-      <description>本文主要阐述kube-apiserver kubelet在线调试方法。 热更新 kubernetes 组件的日志级别 kube-apiserver/kubelet 等组件通常使用 -v 来设置日志级别，默认的日志级别是</description>
     </item>
   </channel>
 </rss>

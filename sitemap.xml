@@ -3,24 +3,30 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://haoshuwei.github.io/categories/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://haoshuwei.github.io/tags/kubernetes/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <loc>https://haoshuwei.github.io/tags/linux/</loc>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <loc>https://haoshuwei.github.io/post/2024-05-14-linux-perm/</loc>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://haoshuwei.github.io/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://haoshuwei.github.io/post/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://haoshuwei.github.io/tags/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://haoshuwei.github.io/categories/tech/</loc>
-    <lastmod>2018-06-04T00:00:00+00:00</lastmod>
+    <lastmod>2024-05-14T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://haoshuwei.github.io/tags/kubernetes/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</loc>
+    <lastmod>2023-08-23T00:00:00+00:00</lastmod>
   </url>
 </urlset>

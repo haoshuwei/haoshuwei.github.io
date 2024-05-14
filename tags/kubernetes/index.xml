@@ -6,12 +6,12 @@
     <description>Recent content in Kubernetes on Maybe Blog</description>
     <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Wed, 23 Aug 2023 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://haoshuwei.github.io/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>kubernetes 组件debug调试</title>
       <link>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</link>
-      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
       <guid>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</guid>
       <description>本文主要阐述kube-apiserver kubelet在线调试方法。 热更新 kubernetes 组件的日志级别 kube-apiserver/kubelet 等组件通常使用 -v 来设置日志级别，默认的日志级别是</description>
     </item>
