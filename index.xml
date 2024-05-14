@@ -4,20 +4,16 @@
     <title>Maybe Blog</title>
     <link>https://haoshuwei.github.io/</link>
     <description>Recent content on Maybe Blog</description>
-    <generator>Hugo -- gohugo.io</generator>
+    <generator>Hugo</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 23 Aug 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://haoshuwei.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 04 Jun 2018 00:00:00 +0000</lastBuildDate>
+    <atom:link href="https://haoshuwei.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>kubernetes 组件debug调试</title>
       <link>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</link>
-      <pubDate>Wed, 23 Aug 2023 00:00:00 +0000</pubDate>
-      
+      <pubDate>Mon, 04 Jun 2018 00:00:00 +0000</pubDate>
       <guid>https://haoshuwei.github.io/post/2023-08-23-kubernetes-debug/</guid>
-      <description>本文主要阐述kube-apiserver kubelet在线调试方法。
-热更新 kubernetes 组件的日志级别 kube-apiserver/kubelet 等组件通常使用 -v 来设置日志级别，默认的日志级别是2，下面是动态热更新日志级别到4的操作步骤：
-# 使用 kube-apiserver 的 http 访问代理 $ kubctl proxy Starting to serve on [::]:8001 # 更新 kube-apiserver 组件的日志级别 $ curl -X PUT 127.0.0.1:8001/debug/flags/v -d &amp;#34;4&amp;#34; successfully set klog.logging.verbosity to 4 # 更新 kubelet 组件的日志级别 $ export NODENAME=hao $ curl -X PUT 127.0.0.1:8001/api/v1/nodes/${NODENAME=hao}/proxy/debug/flags/v -d &amp;#34;4&amp;#34; successfully set klog.logging.verbosity to 4 pprof 调试 pprof是google官方提供的golang 内存/CPU/goroutine 分析工具，主要用于性能分析。在 kubernetes 1.18+ 的版本中， kube-apiserver 已默认开启 pprof，参数如下所示：
---profiling Enable profiling via web interface host:port/debug/pprof/ (default true) 开启 kube-apiserver 的 http 访问代理：</description>
+      <description>本文主要阐述kube-apiserver kubelet在线调试方法。 热更新 kubernetes 组件的日志级别 kube-apiserver/kubelet 等组件通常使用 -v 来设置日志级别，默认的日志级别是</description>
     </item>
-    
   </channel>
 </rss>
